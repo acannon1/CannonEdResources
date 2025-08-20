@@ -364,13 +364,13 @@
             e.preventDefault();
 
             // Get form data
-            // const formData = {
-            //     name: this.name.value,
-            //     phone: this.phone.value,
-            //     email: this.email.value,
-            //     organization: this.organization.value,
-            //     message: this.message.value
-            // };
+            const formData = {
+                name: this.name.value,
+                phone: this.phone.value,
+                email: this.email.value,
+                organization: this.organization.value,
+                message: this.message.value
+            };
             // const formData = new FormData(this);
             // const name = formData.get('name');
             // const phone = formData.get('phone');
@@ -396,13 +396,7 @@
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({
-                    name: "Derek Harper",
-                    phone: "8327242241",
-                    email: "dharper@gmail.com",
-                    organization: "nba",
-                    message: "aaa"
-                })
+                body: JSON.stringify(formData)
                 })
                 .then(res => res.json())
                 .then(data => console.log("Success:", data))
