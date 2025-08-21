@@ -389,7 +389,7 @@
                 method: "POST",
                 body: formData
             })
-            .then(res => res.text()) // or res.json() if you return JSON
+            .then(res => res.json()) // or res.json() if you return JSON
             .then(data => console.log("Success:", data))
             .catch(err => console.error("Error:", err));
 
