@@ -371,12 +371,6 @@
                 organization: this.organization.value,
                 message: this.message.value
             };
-            // const formData = new FormData(this);
-            // const name = formData.get('name');
-            // const phone = formData.get('phone');
-            // const email = formData.get('email');
-            // const organization = formData.get('organization');
-            // const message = formData.get('message');
             
             // Validate required fields
             if (!formData.name || !formData.phone || !formData.email || !formData.organization) {
@@ -393,40 +387,23 @@
 
             fetch("https://script.google.com/macros/s/AKfycbxlpeyTH2sCsJrEjeAxgaxm2z_8gbDE7T3-3rBO-B1qz_1NqX5F7gIODWuLNLyfcmws/exec", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(formData)
-                })
-                .then(res => res.json())
-                .then(data => console.log("Success:", data))
-                .catch(err => console.error("Error:", err));
+                body: formData
+            })
+            .then(res => res.text()) // or res.json() if you return JSON
+            .then(data => console.log("Success:", data))
+            .catch(err => console.error("Error:", err));
 
-            // const response = await fetch("https://script.google.com/macros/s/AKfycbwMEyGcsHaYQez3lSd8yrvhaC1M6RqakvlkwKPCfymIBIh-KQaYtfm-WiHVKbpeckwc/exec", {
+            // fetch("https://script.google.com/macros/s/AKfycbxlpeyTH2sCsJrEjeAxgaxm2z_8gbDE7T3-3rBO-B1qz_1NqX5F7gIODWuLNLyfcmws/exec", {
             //     method: "POST",
-            //     body: JSON.stringify(formData),
             //     headers: {
-            //     "Content-Type": "application/json"
-            //     }
-            // });
-
-            // const result = await response.json();
-            // alert(result.status); // shows "success"
-            
-            // Simulate form submission (in a real application, this would send to a server)
-            // console.log('Contact form submitted:', {
-            //     name: name,
-            //     phone: phone,
-            //     email: email,
-            //     organization: organization,
-            //     message: message,
-            //     timestamp: new Date().toISOString()
-            // });
-            
-            // Show success message
-            // this.style.display = 'none';
-            // document.getElementById('success-message').classList.remove('hidden');
-            
+            //         "Content-Type": "application/json"
+            //     },
+            //     body: JSON.stringify(formData)
+            //     })
+            //     .then(res => res.json())
+            //     .then(data => console.log("Success:", data))
+            //     .catch(err => console.error("Error:", err));
+           
             // Scroll to success message
             document.getElementById('success-message').scrollIntoView({
                 behavior: 'smooth',
